@@ -1,0 +1,710 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoring TTD | SMP Sehat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="brand">
+                <div class="brand-icon">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+                <div class="brand-text">
+                    <h2>Sehat<span>School</span></h2>
+                    <p>TTD Monitoring System</p>
+                </div>
+                <button class="close-sidebar" id="closeSidebar" aria-label="Tutup menu">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="school-profile">
+                <div class="school-avatar">
+                    <i class="fa-solid fa-school"></i>
+                </div>
+                <div class="school-info">
+                    <h3>SMP Sehat Bersama</h3>
+                    <p>Unit Kesehatan Sekolah</p>
+                </div>
+                <i class="fa-solid fa-chevron-down school-arrow"></i>
+            </div>
+
+            <div class="nav-section">
+                <p class="nav-label">MENU UTAMA</p>
+
+                <nav class="navigation">
+                    <a href="#dashboard" class="nav-item active">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#siswi" class="nav-item">
+                        <i class="fa-solid fa-users"></i>
+                        <span>Data Siswi</span>
+                    </a>
+                    <a href="#jadwal" class="nav-item">
+                        <i class="fa-regular fa-calendar-days"></i>
+                        <span>Jadwal TTD</span>
+                    </a>
+                    <a href="#monitoring" class="nav-item">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                        <span>Monitoring TTD</span>
+                        <span class="nav-badge">8</span>
+                    </a>
+                    <a href="#verifikasi" class="nav-item">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>Verifikasi Laporan</span>
+                    </a>
+                    <a href="#laporan" class="nav-item">
+                        <i class="fa-solid fa-chart-column"></i>
+                        <span>Rekap Laporan</span>
+                    </a>
+                </nav>
+            </div>
+
+            <div class="nav-section">
+                <p class="nav-label">PENGELOLAAN</p>
+
+                <nav class="navigation">
+                    <a href="#kader" class="nav-item">
+                        <i class="fa-solid fa-user-group"></i>
+                        <span>Data Kader</span>
+                    </a>
+                    <a href="#pengaturan" class="nav-item">
+                        <i class="fa-solid fa-gear"></i>
+                        <span>Pengaturan</span>
+                    </a>
+                </nav>
+            </div>
+
+            <div class="sidebar-bottom">
+                <div class="help-card">
+                    <div class="help-icon">
+                        <i class="fa-regular fa-circle-question"></i>
+                    </div>
+                    <h4>Butuh bantuan?</h4>
+                    <p>Hubungi pengelola UKS jika mengalami kendala.</p>
+                    <a href="#bantuan">Pusat Bantuan <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div class="sidebar-footer">
+                    <div class="footer-status">
+                        <span class="status-dot"></span>
+                        Sistem monitoring aktif
+                    </div>
+                    <p>SehatSchool v1.0</p>
+                </div>
+            </div>
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <main class="main-content">
+            <header class="topbar">
+                <div class="topbar-left">
+                    <button class="menu-toggle" id="menuToggle" aria-label="Buka menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <div class="breadcrumb">
+                        <span>Menu Utama</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                        <strong>Dashboard</strong>
+                    </div>
+                </div>
+
+                <div class="topbar-right">
+                    <div class="today-date">
+                        <i class="fa-regular fa-calendar"></i>
+                        <span>15 Oktober 2026</span>
+                    </div>
+
+                    <button class="icon-button notification-button" aria-label="Notifikasi">
+                        <i class="fa-regular fa-bell"></i>
+                        <span class="notification-dot"></span>
+                    </button>
+
+                    <div class="topbar-divider"></div>
+
+                    <button class="profile-button">
+                        <div class="profile-avatar">AD</div>
+                        <div class="profile-details">
+                            <strong>Admin UKS</strong>
+                            <span>Administrator</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down profile-arrow"></i>
+                    </button>
+                </div>
+            </header>
+
+            <div class="page-content" id="dashboard">
+                <section class="welcome-section">
+                    <div class="welcome-text">
+                        <div class="welcome-tag">
+                            <span class="status-dot"></span>
+                            SISTEM MONITORING TTD
+                        </div>
+                        <h1>Selamat siang, Admin! <span>👋</span></h1>
+                        <p>Pantau kesehatan siswi dan monitoring konsumsi Tablet Tambah Darah hari ini.</p>
+                    </div>
+
+                    <div class="welcome-actions">
+                        <button class="button button-outline" onclick="window.print()">
+                            <i class="fa-solid fa-print"></i>
+                            Cetak Ringkasan
+                        </button>
+                        <a href="#monitoring" class="button button-primary">
+                            <i class="fa-solid fa-plus"></i>
+                            Input Monitoring
+                        </a>
+                    </div>
+                </section>
+
+                <section class="stats-grid">
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <div class="stat-icon stat-icon-green">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <span class="stat-label">Total Terdaftar</span>
+                        </div>
+                        <div class="stat-value">
+                            <h2>248</h2>
+                            <span class="stat-unit">siswi</span>
+                        </div>
+                        <div class="stat-bottom">
+                            <span class="stat-positive">
+                                <i class="fa-solid fa-arrow-up"></i> 12 siswi
+                            </span>
+                            <span class="stat-description">dibanding bulan lalu</span>
+                        </div>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <div class="stat-icon stat-icon-blue">
+                                <i class="fa-solid fa-capsules"></i>
+                            </div>
+                            <span class="stat-label">Sudah Konsumsi</span>
+                        </div>
+                        <div class="stat-value">
+                            <h2>186</h2>
+                            <span class="stat-unit">siswi</span>
+                        </div>
+                        <div class="stat-bottom">
+                            <span class="stat-positive">
+                                <i class="fa-solid fa-arrow-up"></i> 75%
+                            </span>
+                            <span class="stat-description">dari total siswi</span>
+                        </div>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <div class="stat-icon stat-icon-orange">
+                                <i class="fa-regular fa-clock"></i>
+                            </div>
+                            <span class="stat-label">Menunggu Verifikasi</span>
+                        </div>
+                        <div class="stat-value">
+                            <h2>8</h2>
+                            <span class="stat-unit">laporan</span>
+                        </div>
+                        <div class="stat-bottom">
+                            <span class="stat-warning">
+                                <i class="fa-solid fa-circle-exclamation"></i> Perlu diperiksa
+                            </span>
+                        </div>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <div class="stat-icon stat-icon-purple">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </div>
+                            <span class="stat-label">Kepatuhan Bulan Ini</span>
+                        </div>
+                        <div class="stat-value">
+                            <h2>82<span class="percent">%</span></h2>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill" style="width: 82%"></div>
+                        </div>
+                        <div class="stat-bottom">
+                            <span class="stat-description">Target program: 90%</span>
+                        </div>
+                    </article>
+                </section>
+
+                <section class="dashboard-grid">
+                    <article class="panel chart-panel">
+                        <div class="panel-header">
+                            <div>
+                                <h3>Ringkasan Konsumsi TTD</h3>
+                                <p>Tren laporan konsumsi dalam satu minggu terakhir</p>
+                            </div>
+                            <button class="select-button">
+                                7 Hari Terakhir
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                        </div>
+
+                        <div class="chart-legend">
+                            <span><i class="legend-dot legend-green"></i> Sudah konsumsi</span>
+                            <span><i class="legend-dot legend-gray"></i> Belum konsumsi</span>
+                        </div>
+
+                        <div class="chart-area">
+                            <div class="chart-y-axis">
+                                <span>250</span>
+                                <span>200</span>
+                                <span>150</span>
+                                <span>100</span>
+                                <span>50</span>
+                                <span>0</span>
+                            </div>
+
+                            <div class="chart-main">
+                                <div class="chart-grid-lines">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+
+                                <div class="chart-bars">
+                                    <div class="chart-column">
+                                        <div class="bar-group">
+                                            <div class="bar bar-green" style="height: 66%"></div>
+                                            <div class="bar bar-gray" style="height: 24%"></div>
+                                        </div>
+                                        <span>Sen</span>
+                                    </div>
+                                    <div class="chart-column">
+                                        <div class="bar-group">
+                                            <div class="bar bar-green" style="height: 74%"></div>
+                                            <div class="bar bar-gray" style="height: 20%"></div>
+                                        </div>
+                                        <span>Sel</span>
+                                    </div>
+                                    <div class="chart-column">
+                                        <div class="bar-group">
+                                            <div class="bar bar-green" style="height: 61%"></div>
+                                            <div class="bar bar-gray" style="height: 29%"></div>
+                                        </div>
+                                        <span>Rab</span>
+                                    </div>
+                                    <div class="chart-column">
+                                        <div class="bar-group">
+                                            <div class="bar bar-green" style="height: 83%"></div>
+                                            <div class="bar bar-gray" style="height: 12%"></div>
+                                        </div>
+                                        <span>Kam</span>
+                                    </div>
+                                    <div class="chart-column">
+                                        <div class="bar-group">
+                                            <div class="bar bar-green" style="height: 71%"></div>
+                                            <div class="bar bar-gray" style="height: 21%"></div>
+                                        </div>
+                                        <span>Jum</span>
+                                    </div>
+                                    <div class="chart-column">
+                                        <div class="bar-group">
+                                            <div class="bar bar-green" style="height: 92%"></div>
+                                            <div class="bar bar-gray" style="height: 7%"></div>
+                                        </div>
+                                        <span>Sab</span>
+                                    </div>
+                                    <div class="chart-column">
+                                        <div class="bar-group">
+                                            <div class="bar bar-green" style="height: 77%"></div>
+                                            <div class="bar bar-gray" style="height: 17%"></div>
+                                        </div>
+                                        <span>Min</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chart-footer">
+                            <div>
+                                <span class="chart-footer-label">Total laporan minggu ini</span>
+                                <strong>1.284 <span>laporan</span></strong>
+                            </div>
+                            <div class="chart-footer-note">
+                                <i class="fa-solid fa-circle-info"></i>
+                                Data ilustrasi
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="panel compliance-panel">
+                        <div class="panel-header">
+                            <div>
+                                <h3>Tingkat Kepatuhan</h3>
+                                <p>Persentase konsumsi TTD bulan ini</p>
+                            </div>
+                            <button class="icon-button" aria-label="Pilihan lainnya">
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </button>
+                        </div>
+
+                        <div class="donut-wrapper">
+                            <div class="donut-chart">
+                                <div class="donut-center">
+                                    <strong>82%</strong>
+                                    <span>Kepatuhan</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="compliance-details">
+                            <div class="compliance-row">
+                                <div class="compliance-label">
+                                    <span class="legend-dot legend-green"></span>
+                                    <span>Sudah konsumsi</span>
+                                </div>
+                                <strong>186 siswi</strong>
+                            </div>
+                            <div class="compliance-row">
+                                <div class="compliance-label">
+                                    <span class="legend-dot legend-gray"></span>
+                                    <span>Belum terkonfirmasi</span>
+                                </div>
+                                <strong>62 siswi</strong>
+                            </div>
+                        </div>
+
+                        <div class="compliance-note">
+                            <i class="fa-solid fa-lightbulb"></i>
+                            <p>Tingkatkan edukasi dan pengingat agar pelaporan konsumsi TTD lebih konsisten.</p>
+                        </div>
+                    </article>
+                </section>
+
+                <section class="lower-grid">
+                    <article class="panel schedule-panel" id="jadwal">
+                        <div class="panel-header">
+                            <div>
+                                <h3>Jadwal TTD</h3>
+                                <p>Kegiatan monitoring terdekat</p>
+                            </div>
+                            <a href="#jadwal" class="text-link">Lihat semua <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+
+                        <div class="schedule-list">
+                            <div class="schedule-item">
+                                <div class="schedule-date">
+                                    <span>OKT</span>
+                                    <strong>16</strong>
+                                </div>
+                                <div class="schedule-info">
+                                    <h4>Monitoring TTD Mingguan</h4>
+                                    <p><i class="fa-regular fa-clock"></i> Jumat, 08.00 WIB</p>
+                                    <span class="schedule-tag tag-green">Terjadwal</span>
+                                </div>
+                                <button class="icon-button" aria-label="Detail jadwal">
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </button>
+                            </div>
+
+                            <div class="schedule-item">
+                                <div class="schedule-date date-blue">
+                                    <span>OKT</span>
+                                    <strong>20</strong>
+                                </div>
+                                <div class="schedule-info">
+                                    <h4>Edukasi Pencegahan Anemia</h4>
+                                    <p><i class="fa-regular fa-clock"></i> Selasa, 09.00 WIB</p>
+                                    <span class="schedule-tag tag-blue">Akan datang</span>
+                                </div>
+                                <button class="icon-button" aria-label="Detail jadwal">
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </button>
+                            </div>
+
+                            <div class="schedule-item">
+                                <div class="schedule-date date-orange">
+                                    <span>OKT</span>
+                                    <strong>23</strong>
+                                </div>
+                                <div class="schedule-info">
+                                    <h4>Evaluasi Laporan Bulanan</h4>
+                                    <p><i class="fa-regular fa-clock"></i> Jumat, 13.00 WIB</p>
+                                    <span class="schedule-tag tag-orange">Direncanakan</span>
+                                </div>
+                                <button class="icon-button" aria-label="Detail jadwal">
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="panel activity-panel" id="monitoring">
+                        <div class="panel-header">
+                            <div>
+                                <h3>Aktivitas Terbaru</h3>
+                                <p>Laporan monitoring yang baru masuk</p>
+                            </div>
+                            <a href="#laporan" class="text-link">Lihat semua <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-avatar avatar-green">
+                                    <i class="fa-solid fa-mobile-screen-button"></i>
+                                </div>
+                                <div class="activity-info">
+                                    <h4>Nadia Putri</h4>
+                                    <p>Melaporkan konsumsi TTD secara mandiri</p>
+                                    <span>Hari ini, 10.32 WIB</span>
+                                </div>
+                                <span class="status-pill status-pending">Menunggu</span>
+                            </div>
+
+                            <div class="activity-item">
+                                <div class="activity-avatar avatar-blue">
+                                    <i class="fa-solid fa-user-check"></i>
+                                </div>
+                                <div class="activity-info">
+                                    <h4>Siti Nurhaliza</h4>
+                                    <p>Dicatat oleh kader sekolah</p>
+                                    <span>Hari ini, 09.45 WIB</span>
+                                </div>
+                                <span class="status-pill status-verified">Terverifikasi</span>
+                            </div>
+
+                            <div class="activity-item">
+                                <div class="activity-avatar avatar-purple">
+                                    <i class="fa-solid fa-mobile-screen-button"></i>
+                                </div>
+                                <div class="activity-info">
+                                    <h4>Aulia Rahma</h4>
+                                    <p>Melaporkan konsumsi TTD secara mandiri</p>
+                                    <span>Hari ini, 09.18 WIB</span>
+                                </div>
+                                <span class="status-pill status-pending">Menunggu</span>
+                            </div>
+
+                            <div class="activity-item">
+                                <div class="activity-avatar avatar-orange">
+                                    <i class="fa-solid fa-user-check"></i>
+                                </div>
+                                <div class="activity-info">
+                                    <h4>Putri Amelia</h4>
+                                    <p>Dicatat oleh kader sekolah</p>
+                                    <span>Hari ini, 08.50 WIB</span>
+                                </div>
+                                <span class="status-pill status-verified">Terverifikasi</span>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+
+                <section class="panel report-panel" id="laporan">
+                    <div class="panel-header">
+                        <div>
+                            <h3>Rekap Monitoring Siswi</h3>
+                            <p>Ringkasan status pelaporan konsumsi TTD</p>
+                        </div>
+                        <div class="report-actions">
+                            <button class="button button-outline">
+                                <i class="fa-solid fa-filter"></i>
+                                Filter
+                            </button>
+                            <button class="button button-primary" onclick="window.print()">
+                                <i class="fa-solid fa-download"></i>
+                                Cetak Rekap
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="table-toolbar">
+                        <div class="search-box">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="search" placeholder="Cari nama siswi..." aria-label="Cari nama siswi">
+                        </div>
+                        <select aria-label="Pilih kelas">
+                            <option value="">Semua kelas</option>
+                            <option>Kelas VII</option>
+                            <option>Kelas VIII</option>
+                            <option>Kelas IX</option>
+                        </select>
+                        <select aria-label="Pilih status">
+                            <option value="">Semua status</option>
+                            <option>Sudah konsumsi</option>
+                            <option>Belum konsumsi</option>
+                            <option>Menunggu verifikasi</option>
+                        </select>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nama Siswi</th>
+                                    <th>Kelas</th>
+                                    <th>Tanggal Konsumsi</th>
+                                    <th>Sumber Laporan</th>
+                                    <th>Status Konsumsi</th>
+                                    <th>Verifikasi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="student-cell">
+                                            <div class="student-avatar student-avatar-1">NP</div>
+                                            <div>
+                                                <strong>Nadia Putri</strong>
+                                                <span>SIS-001</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>VIII A</td>
+                                    <td>15 Okt 2026</td>
+                                    <td><span class="source-label"><i class="fa-solid fa-mobile-screen-button"></i> Mandiri</span></td>
+                                    <td><span class="status-pill status-verified">Sudah</span></td>
+                                    <td><span class="status-pill status-pending">Menunggu</span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="student-cell">
+                                            <div class="student-avatar student-avatar-2">SN</div>
+                                            <div>
+                                                <strong>Siti Nurhaliza</strong>
+                                                <span>SIS-002</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>VIII B</td>
+                                    <td>15 Okt 2026</td>
+                                    <td><span class="source-label"><i class="fa-solid fa-school"></i> Kader</span></td>
+                                    <td><span class="status-pill status-verified">Sudah</span></td>
+                                    <td><span class="status-pill status-verified">Valid</span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="student-cell">
+                                            <div class="student-avatar student-avatar-3">AR</div>
+                                            <div>
+                                                <strong>Aulia Rahma</strong>
+                                                <span>SIS-003</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>VII A</td>
+                                    <td>15 Okt 2026</td>
+                                    <td><span class="source-label"><i class="fa-solid fa-mobile-screen-button"></i> Mandiri</span></td>
+                                    <td><span class="status-pill status-verified">Sudah</span></td>
+                                    <td><span class="status-pill status-pending">Menunggu</span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="student-cell">
+                                            <div class="student-avatar student-avatar-4">PA</div>
+                                            <div>
+                                                <strong>Putri Amelia</strong>
+                                                <span>SIS-004</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>IX A</td>
+                                    <td>15 Okt 2026</td>
+                                    <td><span class="source-label"><i class="fa-solid fa-school"></i> Kader</span></td>
+                                    <td><span class="status-pill status-verified">Sudah</span></td>
+                                    <td><span class="status-pill status-verified">Valid</span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="student-cell">
+                                            <div class="student-avatar student-avatar-5">DP</div>
+                                            <div>
+                                                <strong>Dewi Permata</strong>
+                                                <span>SIS-005</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>VII B</td>
+                                    <td>14 Okt 2026</td>
+                                    <td><span class="source-label"><i class="fa-solid fa-mobile-screen-button"></i> Mandiri</span></td>
+                                    <td><span class="status-pill status-unreported">Belum</span></td>
+                                    <td><span class="status-pill status-neutral">—</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="table-footer">
+                        <p>Menampilkan <strong>5</strong> dari <strong>248</strong> siswi</p>
+                        <div class="pagination">
+                            <button disabled aria-label="Halaman sebelumnya">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </button>
+                            <button class="page-number active">1</button>
+                            <button class="page-number">2</button>
+                            <button class="page-number">3</button>
+                            <span>...</span>
+                            <button class="page-number">50</button>
+                            <button aria-label="Halaman selanjutnya">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <footer class="page-footer">
+                    <p>© 2026 <strong>SehatSchool</strong>. Sistem Monitoring Tablet Tambah Darah.</p>
+                    <p>Dibuat untuk mendukung program kesehatan remaja putri <i class="fa-solid fa-heart"></i></p>
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('sidebarOverlay');
+        const menuToggle = document.getElementById('menuToggle');
+        const closeSidebar = document.getElementById('closeSidebar');
+
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.add('sidebar-open');
+            overlay.classList.add('overlay-visible');
+        });
+
+        closeSidebar.addEventListener('click', () => {
+            sidebar.classList.remove('sidebar-open');
+            overlay.classList.remove('overlay-visible');
+        });
+
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('sidebar-open');
+            overlay.classList.remove('overlay-visible');
+        });
+
+        document.querySelectorAll('.navigation .nav-item').forEach(item => {
+            item.addEventListener('click', () => {
+                document.querySelectorAll('.navigation .nav-item').forEach(link => {
+                    link.classList.remove('active');
+                });
+
+                item.classList.add('active');
+
+                if (window.innerWidth <= 900) {
+                    sidebar.classList.remove('sidebar-open');
+                    overlay.classList.remove('overlay-visible');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
